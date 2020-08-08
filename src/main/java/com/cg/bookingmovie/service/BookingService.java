@@ -11,6 +11,7 @@ import com.cg.bookingmovie.exception.BookingException;
 
 
 
+
 public interface BookingService 
 {
 //public List<Seat> chooseSeats(List<Integer> seatIds);
@@ -25,4 +26,6 @@ public interface BookingService
 	public Booking  findAllBookingId(int bookingId) throws BookingException;
 	public Booking deleteBookingById(int bookingId) throws BookingException;
 	public Booking updateBooking(int bookingId, Booking booking) throws BookingException;
+	public Booking createBooking(Booking booking);
+
 }

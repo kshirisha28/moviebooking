@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.bookingmovie.entity.Booking;
 import com.cg.bookingmovie.entity.Payment;
+import com.cg.bookingmovie.entity.Ticket;
 import com.cg.bookingmovie.exception.BookingException;
 import com.cg.bookingmovie.service.BookingService;
 import com.cg.bookingmovie.service.BookingServiceImpl;
@@ -65,19 +66,19 @@ public class BookingContoller {
 		   return tr;
 		
 	}
-//	@PostMapping("booking/{id}")
-//	public ResponseEntity<Booking> createBooking(@PathVariable("id") ,@RequestBody Booking booking) throws BookingException
-//	{
-//		Ticket ticket = new Ticket();
-//		ticket.setTicketId(ticketId);
-//		ticket.set
-//		booking.setTicket(ticket);
-//		
-//		Ticket tic =bookingService.createBooking(booking);
-//		ResponseEntity<Booking>  re = new ResponseEntity<Booking>(tic,HttpStatus.OK);
-//
-//		return re;
-//	}
+	@PostMapping("booking/ticket/{id}")
+	public ResponseEntity<Booking> createBooking(@PathVariable("id") int ticketId ,@RequestBody Booking booking) throws BookingException
+	{
+		Ticket tick = new Ticket();
+		tick.setTicketId(ticketId);
+	
+		booking.setTicket(tick);
+		
+		Booking book =bookingService.createBooking(booking);
+		ResponseEntity<Booking>  re = new ResponseEntity<Booking>(book,HttpStatus.OK);
+
+		return re;
+	}
 	
 	@DeleteMapping("booking/{id}")
 	public ResponseEntity<Booking> deleteBookingById(@PathVariable("id") int bookingId) throws BookingException

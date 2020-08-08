@@ -101,6 +101,12 @@ public class BookingServiceImpl implements BookingService {
 		}
 		return bookingdao.saveAndFlush(booking);
 	}
+
+	@Override
+	public Booking createBooking(Booking booking) {
+		// TODO Auto-generated method stub
+		return bookingdao.saveAndFlush(booking);
+	}
 	}
 
 

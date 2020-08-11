@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.cg.bookingmovie.dao.BookingDao;
 import com.cg.bookingmovie.entity.Booking;
-import com.cg.bookingmovie.entity.Payment;
+
 import com.cg.bookingmovie.entity.Seat;
 import com.cg.bookingmovie.exception.BookingException;
 
@@ -107,6 +107,8 @@ public class BookingServiceImpl implements BookingService {
 		// TODO Auto-generated method stub
 		return bookingdao.saveAndFlush(booking);
 	}
+
+	
 	}
 
 

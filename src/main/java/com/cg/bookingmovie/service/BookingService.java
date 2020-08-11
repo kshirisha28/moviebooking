@@ -3,8 +3,7 @@ package com.cg.bookingmovie.service;
 import java.util.List;
 
 import com.cg.bookingmovie.entity.Booking;
-import com.cg.bookingmovie.entity.Payment;
-import com.cg.bookingmovie.entity.Seat;
+
 import com.cg.bookingmovie.exception.BookingException;
 
 
@@ -27,5 +26,6 @@ public interface BookingService
 	public Booking deleteBookingById(int bookingId) throws BookingException;
 	public Booking updateBooking(int bookingId, Booking booking) throws BookingException;
 	public Booking createBooking(Booking booking);
+	
 
 }

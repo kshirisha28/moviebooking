@@ -8,11 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.bookingmovie.entity.Ticket;
 import com.cg.bookingmovie.exception.TicketException;
 import com.cg.bookingmovie.service.TicketService;
+
 
 
 @RestController
@@ -45,5 +48,17 @@ TicketService ticketService;
 		rt= new ResponseEntity<Ticket>(ticket,HttpStatus.OK);
 		
 		return rt;
+	}
+	@PostMapping("ticket")
+	public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) 
+	{
+		ticket.setTicketId(ticket.getTicketId());
+		ticket.setNoOfSeats(ticket.getNoOfSeats());
+		ticket.setSeatName(ticket.getSeatName());
+		ticket.setScreenName(ticket.getScreenName());
+		
+	Ticket tickk = ticketService.createTicket(ticket);
+		ResponseEntity<Ticket>  re = new ResponseEntity<Ticket>(tickk,HttpStatus.OK);
+            return re;
 	}
 }

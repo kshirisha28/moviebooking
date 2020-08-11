@@ -7,32 +7,38 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 
 @Entity
-@Table(name="movieticket")
+@Table(name="ticketmoduletbl")
 public class Ticket {
 	@Id
 	@Column(name="ticketId")
 	private int ticketId;
 	@Column(name="noOfSeats")
 	private int noOfSeats;
-	@Column(name="seatName")
+	@Column(name="seatName",length=15)
     private String seatName;
-	@Column(name="screenName")
+	@Column(name="screenName",length=15)
 	private String screenName;
  
- 
-    @OneToOne
-     private Booking booking;
-
+// 
+//    @OneToOne
+//     private Booking booking;
+	@OneToMany(mappedBy="ticket")
+	@JsonIgnore
+	
+	private List<Booking> booking = new ArrayList<>();
 
 	public int getTicketId() {
 		return ticketId;
@@ -74,22 +80,25 @@ public class Ticket {
 	}
 
 
-	public Booking getBooking() {
-		return booking;
-	}
 
 
-	public void setBooking(Booking booking) {
-		this.booking = booking;
-	}
 
-
-	public Ticket(int ticketId, int noOfSeats, String seatName, String screenName, Booking booking) {
+	public Ticket(int ticketId, int noOfSeats, String seatName, String screenName, List<Booking> booking) {
 		super();
 		this.ticketId = ticketId;
 		this.noOfSeats = noOfSeats;
 		this.seatName = seatName;
 		this.screenName = screenName;
+		this.booking = booking;
+	}
+
+
+	public List<Booking> getBooking() {
+		return booking;
+	}
+
+
+	public void setBooking(List<Booking> booking) {
 		this.booking = booking;
 	}
 

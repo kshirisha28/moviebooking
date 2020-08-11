@@ -52,6 +52,12 @@ public class TicketServiceImpl implements TicketService {
 		return ticket;
 	}
 
+	@Override
+	public Ticket createTicket(Ticket ticket) {
+		// TODO Auto-generated method stub
+		return ticketdao.saveAndFlush(ticket);
+	}
+
 //	@Override
 //	public Ticket addTicket(Ticket ticket) throws TicketException {
 //		// TODO Auto-generated method stub

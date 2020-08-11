@@ -19,7 +19,7 @@ import com.cg.bookingmovie.exception.BookingException;
 public class BookingServiceImpl implements BookingService {
 
 	@Autowired
-    BookingDao bookingdao;
+    BookingDao bookingDao;
 	
   //  List<Seat> seats;
 	
@@ -59,18 +59,18 @@ public class BookingServiceImpl implements BookingService {
 	@Override
 	public List<Booking> findAllBooking() throws BookingException {
 		
-	return bookingdao.findAll();
+	return bookingDao.findAll();
 	}
 
 	@Override
 	public Booking findAllBookingId(int bookingId) throws BookingException {
 		// TODO Auto-generated method stub
-		if(! bookingdao.existsById(bookingId))
+		if(! bookingDao.existsById(bookingId))
 		{
 			throw new BookingException ("Id not found");
 			
 		}
-		return bookingdao.findById(bookingId).get();
+		return bookingDao.findById(bookingId).get();
 		}
 
 
@@ -78,15 +78,15 @@ public class BookingServiceImpl implements BookingService {
 	public Booking deleteBookingById(int bookingId) throws BookingException {
 		Booking booking = null;
 		
-		if(! bookingdao.existsById(bookingId))
+		if(! bookingDao.existsById(bookingId))
 		{
 			throw new BookingException ("Id not found");
 			
 		}
 		else
 		{
-			booking=bookingdao.findById(bookingId).get();
-			bookingdao.deleteById(bookingId);
+			booking=bookingDao.findById(bookingId).get();
+			bookingDao.deleteById(bookingId);
 		}
 		return booking;
 	}
@@ -94,18 +94,18 @@ public class BookingServiceImpl implements BookingService {
 	@Override
 	public Booking updateBooking(int bookingId, Booking booking) throws BookingException {
 		// TODO Auto-generated method stub
-		if(! bookingdao.existsById(bookingId))
+		if(! bookingDao.existsById(bookingId))
 		{
 			throw new BookingException ("Id not found");
 			
 		}
-		return bookingdao.saveAndFlush(booking);
+		return bookingDao.saveAndFlush(booking);
 	}
 
 	@Override
 	public Booking createBooking(Booking booking) {
 		// TODO Auto-generated method stub
-		return bookingdao.saveAndFlush(booking);
+		return bookingDao.saveAndFlush(booking);
 	}
 
 	

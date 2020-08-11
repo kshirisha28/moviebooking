@@ -17,37 +17,37 @@ import com.cg.bookingmovie.exception.TicketException;
 public class TicketServiceImpl implements TicketService {
 
 	@Autowired
-  TicketDao ticketdao;
+  TicketDao ticketDao;
 
 
 	@Override
 	public Ticket RetreiveTicket(int ticketId) throws TicketException {
-		if(! ticketdao.existsById(ticketId))
+		if(! ticketDao.existsById(ticketId))
 		{
 			throw new TicketException ("Id not found");
 			
 		}
-		return ticketdao.findById(ticketId).get();
+		return ticketDao.findById(ticketId).get();
 	
 	}
 
 	@Override
 	public List<Ticket> getAllTickets() {
-		return ticketdao.findAll( );
+		return ticketDao.findAll( );
 	}
 
 	@Override
 	public Ticket deleteTicketById(int ticketId) throws TicketException {
 	Ticket ticket= null;
-		if(! ticketdao.existsById(ticketId))
+		if(! ticketDao.existsById(ticketId))
 		{
 			throw new TicketException ("Id not found");
 			
 		}
 		else
 		{
-			ticket=ticketdao.findById(ticketId).get();
-			ticketdao.deleteById(ticketId);
+			ticket=ticketDao.findById(ticketId).get();
+			ticketDao.deleteById(ticketId);
 		}
 		return ticket;
 	}
@@ -55,7 +55,7 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public Ticket createTicket(Ticket ticket) {
 		// TODO Auto-generated method stub
-		return ticketdao.saveAndFlush(ticket);
+		return ticketDao.saveAndFlush(ticket);
 	}
 
 //	@Override

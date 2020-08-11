@@ -31,23 +31,7 @@ public class BookingContoller {
 		
 	@Autowired
 	BookingService bookingService;
-//		@GetMapping("/seats")	
-//		public ResponseEntity<List<Seat>> calculateTotalCost(@RequestBody List<Seat> seats){
-//			bookingService.calculateTotalCost(seats);
-//			return new ResponseEntity<>(HttpStatus.OK);
-//		}
-		
-//		@PutMapping("/choose/seats")	
-//		public ResponseEntity<List<Seat>> chooseSeats(@RequestBody List<Integer> seatIds){
-//		
-//			return new ResponseEntity<>(service.chooseSeats(seatIds),HttpStatus.OK);
-//		}
-//		
-//		@PostMapping("/payment")
-//		public ResponseEntity<Payment> choosePaymentMethod(Payment payment) {
-//			return new ResponseEntity<>(bookingService.choosePaymentMethod(payment),HttpStatus.OK);
-//		}
-//		
+
 
 	
 

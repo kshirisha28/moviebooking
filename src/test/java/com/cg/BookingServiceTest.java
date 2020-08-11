@@ -22,7 +22,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Rule;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 
@@ -78,14 +78,14 @@ public class BookingServiceTest {
 	}
 //	@Test
 //	public void testcreateBooking() {
-//	Booking booking=new Booking(1005,2003,3003,"10/08/2020",6004,9003,250);
+//	Booking booking=new Booking();
 //		booking.setBookingId(1005);
-//		booking.setMovieId(2002));
+//		booking.setMovieId(2002);
 //		booking.setShowId(3003);
-//		booking.setLocalDate("10/08/2020");
+//		booking.setBookingDate(TO_DATE('10-08-2020','dd-mm-yyyy'));
 //		booking.setTransactionId(6004);
-//	 booking.setTicketId(9003);
-//	booking,setTotalCost(250.00);
+//	 booking.getTicket();
+//	booking.setTotalCost(250.00);
 //	bookingdao.save(booking);
 //	}
 

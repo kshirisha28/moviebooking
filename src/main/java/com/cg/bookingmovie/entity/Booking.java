@@ -85,7 +85,7 @@ public void setTicket(Ticket ticket) {
 	this.ticket = ticket;
 }
 public Booking(int bookingId, int movieId, int showId, LocalDate bookingDate, int transactionId, double totalCost,
-		 Ticket ticket) {
+		Ticket ticket) {
 	super();
 	this.bookingId = bookingId;
 	this.movieId = movieId;
@@ -93,12 +93,12 @@ public Booking(int bookingId, int movieId, int showId, LocalDate bookingDate, in
 	this.bookingDate = bookingDate;
 	this.transactionId = transactionId;
 	this.totalCost = totalCost;
-
 	this.ticket = ticket;
 }
 public Booking() {
 	super();
 }
+
 
 
 
